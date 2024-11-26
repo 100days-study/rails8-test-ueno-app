@@ -1,0 +1,20 @@
+<%= tag.div(flash[:alert], style: "color:red") if flash[:alert] %>
+<%= tag.div(flash[:notice], style: "color:green") if flash[:notice] %>
+
+<% if authenticated?%>
+  <p><%= Current.user.email_address %></p>
+<% else %>
+  <p>現在はログアウト中です</p>
+<% end %>
+
+<%= form_with url: session_path do |form| %>
+  <p>メールアドレスを入力してください</p>
+  <%= form.email_field :email_address, required: true, autofocus: true, autocomplete: "username", placeholder: "Enter your email address", value: params[:email_address] %><br>
+  <p>パスワードを入力してください</p>
+  <%= form.password_field :password, required: true, autocomplete: "current-password", placeholder: "Enter your password", maxlength: 72 %><br>
+  <br>
+  <%= form.submit "ログイン" %>
+<% end %>
+<br>
+
+<%= link_to "パスワードをお忘れの方はこちら", new_password_path %>
