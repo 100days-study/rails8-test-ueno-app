@@ -1,28 +1,27 @@
 <%= tag.div(flash[:alert], style: "color:red") if flash[:alert] %>
 <%= tag.div(flash[:notice], style: "color:green") if flash[:notice] %>
+<div class="m-3">
+  <div class=>
+    <h1 class="m-3">ここはトップページです</h1>
+    <% if authenticated?%>
+    <p><%= Current.user.email_address %></p>
+    <% else %>
+    <p class="m-3">現在はログアウト中です</p>
+    <% end %>
+  </div>
 
-<div>
-  <h1>ここはトップページです</h1>
-  <% if authenticated?%>
-  <p><%= Current.user.email_address %></p>
-  <% else %>
-  <p>現在はログアウト中です</p>
-  <% end %>
-</div>
-
-<div>
-  <%= form_with url: session_path do |form| %>
-  <p>メールアドレスを入力してください</p>
-  <%= form.email_field :email_address, required: true, autofocus: true, autocomplete: "username", placeholder: "例: test@example.com", value: params[:email_address] %><br>
-  <p>パスワードを入力してください</p>
-  <%= form.password_field :password, required: true, autocomplete: "current-password", placeholder: "パスワードを入力してください", maxlength: 72 %><br>
-  <br>
-  <%= form.submit "ログイン" %>
-  <% end %>
-  <br>
-</div>
-
-<div>
-  <p><%= link_to "パスワードをお忘れの方はこちら", new_password_path %></p>
-  <p><%= link_to "ヘルプ", static_pages_help_path %></p>
+  <div>
+    <%= form_with url: session_path do |form| %>
+    <p>メールアドレスを入力してください</p>
+    <%= form.email_field :email_address, required: true, autofocus: true, autocomplete: "username", placeholder: "例: test@example.com", value: params[:email_address] %><br>
+    <p>パスワードを入力してください</p>
+    <%= form.password_field :password, required: true, autocomplete: "current-password", placeholder: "パスワードを入力してください", maxlength: 72 %><br>
+    <br>
+    <p class="text-blue-600 m-3"><%= form.submit "ログイン" %></p>
+    <% end %>
+    <p class="text-blue-600 m-3"><%= link_to "ヘルプ", static_pages_help_path %></p>
+  </div>
+  <div>
+    <p class="text-red-600 m-3  "><%= link_to "パスワードをお忘れの方はこちら", new_password_path %></p>
+  </div>
 </div>
