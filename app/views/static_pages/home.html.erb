@@ -1,16 +1,17 @@
 <div class="p-4">
   <div class="m-3">
-    <h1 class="text-3xl font-bold underline">ここはダッシュボード</h1>
+    <h1>ここはダッシュボード</h1>
   </div>
   <div class="p-3">
     <p>現在のログインユーザーは "<%= Current.user.email_address %>" です</p>
+    <p class="text-blue-600 underline"><%= link_to "マイページ", users_path %></p>
   </div>
   <div>
-    <ul class="text-blue-600">
-      <li class="inline-block relative pe-8 last:pe-0 last-of-type:before:hidden before:absolute before:top-1/2 before:end-3 before:-translate-y-1/2 before:size-1 before:bg-gray-300 before:rounded-full dark:text-neutral-400 dark:before:bg-neutral-600">
+    <ul>
+      <li class="text-blue-600 underline">
         <%= link_to "ヘルプ", static_pages_help_path %>
       </li>
-      <li class="inline-block relative pe-8 last:pe-0 last-of-type:before:hidden before:absolute before:top-1/2 before:end-3 before:-translate-y-1/2 before:size-1 before:bg-gray-300 before:rounded-full dark:text-neutral-400 dark:before:bg-neutral-600">
+      <li class="text-blue-600 underline">
         <%= link_to "ログアウト", session_path, data: { turbo_method: :delete } %>
       </li>
     </ul>
