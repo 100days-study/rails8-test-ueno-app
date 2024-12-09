@@ -1,21 +1,8 @@
-<div>
+<div class="m-3">
   <div>
     <h1>ここはダッシュボード</h1>
   </div>
   <div>
-    <p>現在のログインユーザーは "<%= Current.user.email_address %>" です</p>
-    <p class="text-blue-600 underline"><%= link_to "マイページ", users_path %></p>
-  </div>
-  <div>
-    <ul>
-      <li class="text-blue-600 underline">
-        <%= link_to "ヘルプ", static_pages_help_path %>
-      </li>
-      <li class="text-blue-600 underline">
-        <%= link_to "ログアウト", session_path, data: { turbo_method: :delete } %>
-      </li>
-    </ul>
+    <p>現在のログインユーザーは " <%= Current.user.email_address %>" です</p>
   </div>
 </div>
-
-<i class="fa fa-house"></i>
